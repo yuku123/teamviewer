@@ -1,4 +1,4 @@
-package com.zifang.teamviewer.test;
+package com.zifang.teamviewer.client;
 
 import javax.swing.*;
 
