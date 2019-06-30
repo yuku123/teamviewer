@@ -21,6 +21,6 @@ public class WSInitialer extends ChannelInitializer<SocketChannel> {
         // -------支持http支持--------
         channelPipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
-        channelPipeline.addLast(null);
+        channelPipeline.addLast(new ChatHandle());
     }
 }

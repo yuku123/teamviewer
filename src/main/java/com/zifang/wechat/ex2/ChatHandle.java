@@ -25,7 +25,6 @@ public class ChatHandle  extends SimpleChannelInboundHandler<TextWebSocketFrame>
         String content =  msg.text();
         System.out.println("收到"+content);
 
-
         for(Channel channel : channels){
             channel.writeAndFlush(new TextWebSocketFrame("[serve]"+ LocalDateTime.now()+content));
         }
