@@ -10,12 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>teamviewer-server</artifactId>
-
-    <dependency>
-        <groupId>com.zifang</groupId>
-        <artifactId>teamviewer-common</artifactId>
-        <version>1.0.0</version>
-    </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>com.zifang</groupId>
+            <artifactId>teamviewer-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
