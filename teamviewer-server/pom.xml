@@ -11,5 +11,11 @@
 
     <artifactId>teamviewer-server</artifactId>
 
+    <dependency>
+        <groupId>com.zifang</groupId>
+        <artifactId>teamviewer-common</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+
 
 </project>

@@ -1,5 +1,7 @@
 package com.zifang.teamviewer.client.netty.main;
 
+import com.zifang.teamviewer.client.NettyClient;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
