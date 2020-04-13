@@ -1,10 +1,7 @@
 package com.zifang.teamviewer.client;
 
 import com.zifang.teamviewer.common.endecoder.*;
-import com.zifang.teamviewer.common.handler.ControlResponseHandler;
-import com.zifang.teamviewer.common.handler.ImageResponseHandler;
-import com.zifang.teamviewer.common.handler.LoginResponseHandler;
-import com.zifang.teamviewer.common.handler.MessageResponseHandler;
+import com.zifang.teamviewer.common.handler.*;
 import com.zifang.teamviewer.common.packet.ControlRequestPacket;
 import com.zifang.teamviewer.common.packet.LoginRequestPacket;
 import io.netty.bootstrap.Bootstrap;
@@ -16,11 +13,18 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Scanner;
 
 public class NettyClient {
+
+    private static final Logger logger = LoggerFactory.getLogger(NettyClient.class);
     private int MAX_RETRY = 5;
-    private String host = "127.0.0.1";
+    private String host = "localhost";
     private int port = 8000;
+
     private Channel channel;
 
     public NettyClient(){
@@ -36,12 +40,13 @@ public class NettyClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     public void initChannel(SocketChannel ch) {
-                        ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 7, 4));
-                        ch.pipeline().addLast(new PacketDecoder());
-                        ch.pipeline().addLast(new LoginResponseHandler());
-                        ch.pipeline().addLast(new MessageResponseHandler());
-                        ch.pipeline().addLast(new ImageResponseHandler());
-                        ch.pipeline().addLast(new ControlResponseHandler());
+                        ch.pipeline().addLast(new FirstClientHandler());
+                        //ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 7, 4));
+//                        ch.pipeline().addLast(new PacketDecoder());
+//                        ch.pipeline().addLast(new LoginResponseHandler());
+//                        ch.pipeline().addLast(new MessageResponseHandler());
+//                        ch.pipeline().addLast(new ImageResponseHandler());
+//                        ch.pipeline().addLast(new ControlResponseHandler());
                         ch.pipeline().addLast(new PacketEncoder());
                     }
                 });
@@ -85,4 +90,11 @@ public class NettyClient {
 //
 //        channel.writeAndFlush(messageRequestPacket);
     }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+
+
 }

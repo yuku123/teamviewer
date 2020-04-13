@@ -20,13 +20,17 @@ public class PacketCodeC {
 
 
     private PacketCodeC() {
+        // 初始化所有的支持的协议
         packetTypeMap = new HashMap<>();
         packetTypeMap.put(LOGIN_REQUEST, LoginRequestPacket.class);
         packetTypeMap.put(LOGIN_RESPONSE, LoginResponsePacket.class);
+
         packetTypeMap.put(MESSAGE_REQUEST, MessageRequestPacket.class);
         packetTypeMap.put(MESSAGE_RESPONSE, MessageResponsePacket.class);
+
         packetTypeMap.put(IMAGE_REQUEST, ImageRequestPacket.class);
         packetTypeMap.put(IMAGE_RESPONSE, ImageResponsePacket.class);
+
         packetTypeMap.put(CONTROL_REQUEST, ControlRequestPacket.class);
         packetTypeMap.put(CONTROL_RESPONSE, ControlResponsePacket.class);
 

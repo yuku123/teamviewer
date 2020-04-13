@@ -6,6 +6,9 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
 
+/**
+ * 全局性的解码器
+ * */
 public class PacketDecoder extends ByteToMessageDecoder {
 
     @Override

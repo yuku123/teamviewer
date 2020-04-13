@@ -15,7 +15,7 @@ import java.util.Date;
  * */
 public class NettyServer {
 
-    private static final int PORT = 10000; // 服务监听的端口
+    private static final int PORT = 8000; // 服务监听的端口
 
     public static void main(String[] args) {
 
