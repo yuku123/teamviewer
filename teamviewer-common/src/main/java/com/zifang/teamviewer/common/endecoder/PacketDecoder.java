@@ -1,5 +1,6 @@
 package com.zifang.teamviewer.common.endecoder;
 
+import com.zifang.teamviewer.common.packet.Packet;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -13,6 +14,7 @@ public class PacketDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List out) {
-        out.add(PacketCodeC.INSTANCE.decode(in));
+        Packet packet = PacketCodeC.INSTANCE.decode(in);
+        out.add(packet);
     }
 }

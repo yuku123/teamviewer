@@ -2,6 +2,8 @@ package com.zifang.teamviewer.common.interfaces;
 
 public interface Command {
 
+    Byte COMMON_REQUEST = 0;
+
     Byte LOGIN_REQUEST = 1;
 
     Byte LOGIN_RESPONSE = 2;
